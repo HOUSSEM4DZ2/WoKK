@@ -419,14 +419,17 @@
              /* Superset images on mobile */
              .superset-images {
                  flex-direction: column;
-                 gap: 10px;
+                 gap: 15px;
                  height: auto;
+                 padding: 10px 0;
              }
              
              .superset-images img {
                  width: 100%;
-                 height: 180px;
+                 height: 220px;
                  object-fit: contain;
+                 border-radius: 10px;
+                 box-shadow: 0 2px 8px rgba(0,0,0,0.1);
              }
          }
          
@@ -458,8 +461,13 @@
              }
              
              /* Superset images on very small screens */
+             .superset-images {
+                 gap: 12px;
+                 padding: 8px 0;
+             }
+             
              .superset-images img {
-                 height: 150px;
+                 height: 200px;
              }
          }
     </style>
