@@ -304,19 +304,17 @@
              transform: scale(1.05);
          }
          
-         /* Superset images styling */
-         .superset-images {
+         /* Superset container styling */
+         .superset-container {
              display: flex;
              flex-direction: row;
-             gap: 10px;
-             height: auto;
+             gap: 15px;
+             margin: 15px 0;
          }
          
-         .superset-images img {
+         .superset-container .exercise-image {
              flex: 1;
-             width: auto;
-             height: 200px;
-             object-fit: contain;
+             margin: 0;
          }
         
          @media (max-width: 768px) {
@@ -416,20 +414,15 @@
                  font-size: 30px;
              }
              
-             /* Superset images on mobile */
-             .superset-images {
+             /* Superset container on mobile */
+             .superset-container {
                  flex-direction: column;
                  gap: 15px;
-                 height: auto;
-                 padding: 10px 0;
+                 margin: 10px 0;
              }
              
-             .superset-images img {
-                 width: 100%;
-                 height: 220px;
-                 object-fit: contain;
-                 border-radius: 10px;
-                 box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+             .superset-container .exercise-image {
+                 margin: 0;
              }
          }
          
@@ -460,14 +453,10 @@
                  font-size: 1.2em;
              }
              
-             /* Superset images on very small screens */
-             .superset-images {
+             /* Superset container on very small screens */
+             .superset-container {
                  gap: 12px;
-                 padding: 8px 0;
-             }
-             
-             .superset-images img {
-                 height: 200px;
+                 margin: 8px 0;
              }
          }
     </style>
@@ -549,7 +538,7 @@
                 <h2>🏗️ Month 1: Foundation & Form Mastery</h2>
                 <p><strong>Focus:</strong> Learning proper movement patterns, building mind-muscle connection, establishing routine</p>
                 <p><strong>Rep Ranges:</strong> 10-15 reps for most exercises</p>
-                <p><strong>RPE Target:</strong> 6-7 (moderate intensity - you should feel challenged but maintain perfect form)</p>
+                <p><strong>Hardness Target (RPE):</strong> 6-7 (moderate intensity - you should feel challenged but maintain perfect form)</p>
             </div>
             
             <div class="workout">
@@ -571,7 +560,7 @@
                             <strong>Rest</strong>60 seconds
                         </div>
                         <div class="detail-item">
-                            <strong>RPE</strong>6-7
+                            <strong>Hardness</strong>6-7
                         </div>
                     </div>
                     <div class="technique-cues">
@@ -600,7 +589,7 @@
                             <strong>Rest</strong>60 seconds
                         </div>
                         <div class="detail-item">
-                            <strong>RPE</strong>6-7
+                            <strong>Hardness</strong>6-7
                         </div>
                     </div>
                     <div class="technique-cues">
@@ -629,7 +618,7 @@
                             <strong>Rest</strong>60 seconds
                         </div>
                         <div class="detail-item">
-                            <strong>RPE</strong>6-7
+                            <strong>Hardness</strong>6-7
                         </div>
                     </div>
                     <div class="technique-cues">
@@ -658,7 +647,7 @@
                             <strong>Rest</strong>45 seconds
                         </div>
                         <div class="detail-item">
-                            <strong>RPE</strong>7-8
+                            <strong>Hardness</strong>7-8
                         </div>
                     </div>
                     <div class="technique-cues">
@@ -687,7 +676,7 @@
                             <strong>Rest</strong>45 seconds
                         </div>
                         <div class="detail-item">
-                            <strong>RPE</strong>6-7
+                            <strong>Hardness</strong>6-7
                         </div>
                     </div>
                     <div class="technique-cues">
@@ -720,7 +709,7 @@
                             <strong>Rest</strong>60 seconds
                         </div>
                         <div class="detail-item">
-                            <strong>RPE</strong>6-7
+                            <strong>Hardness</strong>6-7
                         </div>
                     </div>
                     <div class="technique-cues">
@@ -749,7 +738,7 @@
                             <strong>Rest</strong>60 seconds
                         </div>
                         <div class="detail-item">
-                            <strong>RPE</strong>6-7
+                            <strong>Hardness</strong>6-7
                         </div>
                     </div>
                     <div class="technique-cues">
@@ -778,7 +767,7 @@
                             <strong>Rest</strong>60 seconds
                         </div>
                         <div class="detail-item">
-                            <strong>RPE</strong>6-7
+                            <strong>Hardness</strong>6-7
                         </div>
                     </div>
                     <div class="technique-cues">
@@ -807,7 +796,7 @@
                             <strong>Rest</strong>45 seconds
                         </div>
                         <div class="detail-item">
-                            <strong>RPE</strong>7-8
+                            <strong>Hardness</strong>7-8
                         </div>
                     </div>
                     <div class="technique-cues">
@@ -836,7 +825,7 @@
                             <strong>Rest</strong>45 seconds
                         </div>
                         <div class="detail-item">
-                            <strong>RPE</strong>6-7
+                            <strong>Hardness</strong>6-7
                         </div>
                     </div>
                     <div class="technique-cues">
@@ -857,7 +846,7 @@
                 <h2>💪 Month 2: Strength Progression & Hypertrophy</h2>
                 <p><strong>Focus:</strong> Progressive overload, building real strength, muscle growth</p>
                 <p><strong>Rep Ranges:</strong> 8-12 reps for primary lifts, 10-15 for accessories</p>
-                <p><strong>RPE Target:</strong> 7-8 (challenging but maintainable)</p>
+                <p><strong>Hardness Target (RPE):</strong> 7-8 (challenging but maintainable)</p>
                 <p><strong>Key Changes:</strong> Increased weight, barbell introduction, longer rest periods (90 seconds for primary lifts)</p>
             </div>
             
@@ -880,7 +869,7 @@
                             <strong>Rest</strong>90 seconds
                         </div>
                         <div class="detail-item">
-                            <strong>RPE</strong>7-8
+                            <strong>Hardness</strong>7-8
                         </div>
                     </div>
                     <div class="technique-cues">
@@ -909,7 +898,7 @@
                             <strong>Rest</strong>90 seconds
                         </div>
                         <div class="detail-item">
-                            <strong>RPE</strong>7-8
+                            <strong>Hardness</strong>7-8
                         </div>
                     </div>
                     <div class="technique-cues">
@@ -938,7 +927,7 @@
                             <strong>Rest</strong>90 seconds
                         </div>
                         <div class="detail-item">
-                            <strong>RPE</strong>7-8
+                            <strong>Hardness</strong>7-8
                         </div>
                     </div>
                     <div class="technique-cues">
@@ -967,7 +956,7 @@
                             <strong>Rest</strong>60 seconds
                         </div>
                         <div class="detail-item">
-                            <strong>RPE</strong>8-9
+                            <strong>Hardness</strong>8-9
                         </div>
                     </div>
                     <div class="technique-cues">
@@ -988,7 +977,7 @@
                 <h2>🔥 Month 3: Metabolic Conditioning & Definition</h2>
                 <p><strong>Focus:</strong> Maximizing calorie expenditure, muscular definition, intensity techniques</p>
                 <p><strong>Rep Ranges:</strong> 6-10 reps for primary lifts, 8-12 for accessories</p>
-                <p><strong>RPE Target:</strong> 8-9 (very challenging, pushing limits)</p>
+                <p><strong>Hardness Target (RPE):</strong> 8-9 (very challenging, pushing limits)</p>
                 <p><strong>Key Changes:</strong> Supersets, shorter rest periods, intensity techniques, HIIT cardio</p>
             </div>
             
@@ -1011,7 +1000,7 @@
                             <strong>Rest</strong>60 seconds
                         </div>
                         <div class="detail-item">
-                            <strong>RPE</strong>8-9
+                            <strong>Hardness</strong>8-9
                         </div>
                     </div>
                     <div class="technique-cues">
@@ -1026,9 +1015,13 @@
                 
                 <div class="exercise">
                     <h4>Superset 1: Barbell Hip Thrusts + Cable Kickbacks</h4>
-                     <div class="exercise-image superset-images">
-                         <img src="gifs/WEI_HIP_THRUST.gif" alt="Barbell Hip Thrusts Exercise" style="width: 100%; height: 100%; object-fit: contain; border-radius: 10px;">
-                         <img src="gifs/CABLE_DONK_KICK.gif" alt="Cable Kickbacks Exercise" style="width: 100%; height: 100%; object-fit: contain; border-radius: 10px;">
+                     <div class="superset-container">
+                         <div class="exercise-image">
+                             <img src="gifs/WEI_HIP_THRUST.gif" alt="Barbell Hip Thrusts Exercise" style="width: 100%; height: 100%; object-fit: contain; border-radius: 10px;">
+                         </div>
+                         <div class="exercise-image">
+                             <img src="gifs/CABLE_DONK_KICK.gif" alt="Cable Kickbacks Exercise" style="width: 100%; height: 100%; object-fit: contain; border-radius: 10px;">
+                         </div>
                      </div>
                     <div class="exercise-details">
                         <div class="detail-item">
@@ -1041,7 +1034,7 @@
                             <strong>Rest</strong>60 seconds
                         </div>
                         <div class="detail-item">
-                            <strong>RPE</strong>8-9 / 7-8
+                            <strong>Hardness</strong>8-9 / 7-8
                         </div>
                     </div>
                     <div class="technique-cues">
@@ -1056,9 +1049,13 @@
                 
                 <div class="exercise">
                     <h4>Superset 2: Cable Rows + Dumbbell Lateral Raises</h4>
-                     <div class="exercise-image superset-images">
-                         <img src="gifs/SEATED_CABLE_ROW.gif" alt="Cable Rows Exercise" style="width: 100%; height: 100%; object-fit: contain; border-radius: 10px;">
-                         <img src="gifs/DB_LAT_RAISE.gif" alt="Dumbbell Lateral Raises Exercise" style="width: 100%; height: 100%; object-fit: contain; border-radius: 10px;">
+                     <div class="superset-container">
+                         <div class="exercise-image">
+                             <img src="gifs/SEATED_CABLE_ROW.gif" alt="Cable Rows Exercise" style="width: 100%; height: 100%; object-fit: contain; border-radius: 10px;">
+                         </div>
+                         <div class="exercise-image">
+                             <img src="gifs/DB_LAT_RAISE.gif" alt="Dumbbell Lateral Raises Exercise" style="width: 100%; height: 100%; object-fit: contain; border-radius: 10px;">
+                         </div>
                      </div>
                     <div class="exercise-details">
                         <div class="detail-item">
@@ -1071,7 +1068,7 @@
                             <strong>Rest</strong>60 seconds
                         </div>
                         <div class="detail-item">
-                            <strong>RPE</strong>7-8 / 7-8
+                            <strong>Hardness</strong>7-8 / 7-8
                         </div>
                     </div>
                     <div class="technique-cues">
@@ -1139,7 +1136,7 @@
             
             <div class="mesocycle">
                 <h2>📈 Progressive Overload Rules</h2>
-                <p><strong>The Golden Rule:</strong> When you can comfortably complete all sets and reps for an exercise at the target RPE, increase the weight by the smallest available increment in the next session.</p>
+                <p><strong>The Golden Rule:</strong> When you can comfortably complete all sets and reps for an exercise at the target Hardness of REP, increase the weight by the smallest available increment in the next session.</p>
                 
                 <h3>Progression Guidelines:</h3>
                 <ul style="margin: 20px 0; padding-left: 30px;">
