@@ -316,6 +316,135 @@
              flex: 1;
              margin: 0;
          }
+
+         .input-group {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+         }
+
+         .input-group label {
+            font-size: 1em;
+            color: white;
+         }
+
+         .input-group input {
+            padding: 8px;
+            border-radius: 5px;
+            border: none;
+            width: 100px;
+         }
+
+         .input-group button {
+            background: #ffc107;
+            color: #856404;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+         }
+
+         #macro-results {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 15px;
+            border-radius: 10px;
+         }
+
+         #macro-results h4 {
+            color: white;
+            margin-bottom: 10px;
+         }
+
+         .glossary-item {
+            margin-bottom: 15px;
+         }
+         .glossary-item h4 {
+            color: #ff6b6b;
+            margin-bottom: 5px;
+         }
+
+         .list-item {
+            margin-bottom: 10px;
+         }
+         .list-item h4 {
+            color: #28a745;
+            margin-bottom: 5px;
+         }
+
+         .log-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            text-align: left;
+         }
+
+         .log-table th, .log-table td {
+             border: 1px solid #ddd;
+             padding: 12px;
+         }
+         
+         .log-table th {
+             background-color: #f2f2f2;
+         }
+
+         .log-form {
+             display: flex;
+             flex-direction: column;
+             gap: 10px;
+             padding: 20px;
+             border-radius: 10px;
+             background: #f8f9fa;
+             margin-bottom: 20px;
+             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+         }
+
+         .log-form input, .log-form select {
+             padding: 10px;
+             border: 1px solid #ddd;
+             border-radius: 5px;
+             font-size: 16px;
+         }
+
+         .log-form button {
+             background: #28a745;
+             color: white;
+             padding: 12px;
+             border: none;
+             border-radius: 5px;
+             cursor: pointer;
+             transition: background-color 0.3s ease;
+         }
+
+         .log-form button:hover {
+             background: #218838;
+         }
+
+         .action-buttons {
+             display: flex;
+             gap: 8px;
+         }
+
+         .action-buttons button {
+             font-size: 14px;
+             padding: 8px 12px;
+             border-radius: 4px;
+             cursor: pointer;
+             transition: background-color 0.2s;
+         }
+
+         .action-buttons .edit-btn {
+             background: #ffc107;
+             color: #856404;
+             border: none;
+         }
+
+         .action-buttons .delete-btn {
+             background: #dc3545;
+             color: white;
+             border: none;
+         }
         
          @media (max-width: 768px) {
              .container {
@@ -424,6 +553,15 @@
              .superset-container .exercise-image {
                  margin: 0;
              }
+
+             .input-group {
+                flex-direction: column;
+                align-items: stretch;
+             }
+             
+             .input-group input, .input-group button {
+                 width: 100%;
+             }
          }
          
          @media (max-width: 480px) {
@@ -474,9 +612,9 @@
             <button onclick="showSection('month2')">Month 2: Strength</button>
             <button onclick="showSection('month3')">Month 3: Definition</button>
             <button onclick="showSection('nutrition')">Nutrition & Recovery</button>
+            <button onclick="showSection('mindset')">Mindset & Mobility</button>
         </div>
         
-        <!-- Program Overview -->
         <div id="overview" class="section active">
             <div class="mesocycle">
                 <h2>🎯 Your Transformation Goals</h2>
@@ -530,9 +668,51 @@
                 <p><strong>Split:</strong> Full-body workouts (Workout A & Workout B alternating)</p>
                 <p><strong>Weekly Pattern:</strong> Week 1: A, B, A | Week 2: B, A, B | Week 3: A, B, A | Week 4: B, A, B</p>
             </div>
+
+            <div class="mesocycle">
+                <h2>📈 Interactive Progress Log</h2>
+                <p>Log your key lifts here to ensure you are seeing consistent progress. Your data will be saved automatically.</p>
+                <form class="log-form" id="logForm">
+                    <label for="logDate">Date:</label>
+                    <input type="date" id="logDate" required>
+                    
+                    <label for="logExercise">Exercise:</label>
+                    <select id="logExercise" required>
+                        <option value="">--Select an Exercise--</option>
+                        <option value="Goblet Squat">Goblet Squat</option>
+                        <option value="Dumbbell Romanian Deadlift">Dumbbell Romanian Deadlift</option>
+                        <option value="Dumbbell Bench Press">Dumbbell Bench Press</option>
+                        <option value="Barbell Back Squat">Barbell Back Squat</option>
+                        <option value="Barbell Romanian Deadlift">Barbell Romanian Deadlift</option>
+                        <option value="Barbell Bench Press">Barbell Bench Press</option>
+                        <option value="Barbell Hip Thrusts">Barbell Hip Thrusts</option>
+                    </select>
+                    
+                    <label for="logWeight">Weight (kg):</label>
+                    <input type="number" id="logWeight" placeholder="e.g., 30" required>
+                    
+                    <label for="logReps">Reps:</label>
+                    <input type="number" id="logReps" placeholder="e.g., 10" required>
+                    
+                    <button type="submit" id="logSubmitBtn">Add Log Entry</button>
+                </form>
+
+                <table class="log-table">
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Exercise</th>
+                            <th>Weight (kg)</th>
+                            <th>Reps</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="logTableBody">
+                        </tbody>
+                </table>
+            </div>
         </div>
         
-        <!-- Month 1: Foundation -->
         <div id="month1" class="section">
             <div class="mesocycle">
                 <h2>🏗️ Month 1: Foundation & Form Mastery</h2>
@@ -840,7 +1020,6 @@
             </div>
         </div>
         
-        <!-- Month 2: Strength -->
         <div id="month2" class="section">
             <div class="mesocycle">
                 <h2>💪 Month 2: Strength Progression & Hypertrophy</h2>
@@ -971,7 +1150,6 @@
             </div>
         </div>
         
-        <!-- Month 3: Definition -->
         <div id="month3" class="section">
             <div class="mesocycle">
                 <h2>🔥 Month 3: Metabolic Conditioning & Definition</h2>
@@ -1083,7 +1261,6 @@
             </div>
         </div>
         
-        <!-- Nutrition & Recovery -->
         <div id="nutrition" class="section">
             <div class="nutrition-section">
                 <h2>🥗 Nourish to Thrive: Nutrition & Recovery Essentials</h2>
@@ -1091,23 +1268,36 @@
                 
                 <div class="nutrition-grid">
                     <div class="nutrition-card">
+                        <h4>Macros Calculator</h4>
+                        <div class="input-group">
+                            <label for="weight">Body Weight (kg):</label>
+                            <input type="number" id="weight" placeholder="e.g., 75">
+                            <button onclick="calculateMacros()">Calculate</button>
+                        </div>
+                        <div id="macro-results">
+                            <h4>Your Daily Targets:</h4>
+                            <p id="protein"></p>
+                            <p id="carbs"></p>
+                            <p id="fats"></p>
+                            <p id="calories"></p>
+                        </div>
+                    </div>
+
+                    <div class="nutrition-card">
                         <h4>🍖 Protein Priority</h4>
                         <p><strong>Target:</strong> 1.6-2.2g per kg body weight</p>
-                        <p><strong>For you:</strong> 130-180g daily</p>
                         <p><strong>Sources:</strong> Lean meats, fish, eggs, Greek yogurt, protein powder</p>
                     </div>
                     
                     <div class="nutrition-card">
                         <h4>⚡ Smart Carbs</h4>
                         <p><strong>Target:</strong> 2-4g per kg body weight</p>
-                        <p><strong>For you:</strong> 165-330g daily</p>
                         <p><strong>Sources:</strong> Oats, quinoa, sweet potatoes, brown rice</p>
                     </div>
                     
                     <div class="nutrition-card">
                         <h4>🥑 Healthy Fats</h4>
                         <p><strong>Target:</strong> 0.8-1.2g per kg body weight</p>
-                        <p><strong>For you:</strong> 65-100g daily</p>
                         <p><strong>Sources:</strong> Avocado, nuts, seeds, olive oil, fatty fish</p>
                     </div>
                     
@@ -1123,13 +1313,6 @@
                         <p><strong>Target:</strong> 7-9 hours quality sleep</p>
                         <p><strong>Benefits:</strong> Muscle repair, hormone balance, hunger control</p>
                         <p><strong>Tips:</strong> No screens 1 hour before bed, cool room</p>
-                    </div>
-                    
-                    <div class="nutrition-card">
-                        <h4>📊 Calorie Deficit</h4>
-                        <p><strong>Target:</strong> 300-500 calorie deficit daily</p>
-                        <p><strong>Result:</strong> 0.5-1 lb fat loss per week</p>
-                        <p><strong>Minimum:</strong> Don't go below 1,200 calories</p>
                     </div>
                 </div>
             </div>
@@ -1187,13 +1370,56 @@
                 </table>
             </div>
         </div>
+
+        <div id="mindset" class="section">
+            <div class="mesocycle">
+                <h2>🧠 Mindset & Motivation</h2>
+                <p>Your physical transformation is a mental game, too. Stay consistent and be patient with the process. A single workout won't make you strong, but a consistent habit of training will.</p>
+                <h3>Tips for Success:</h3>
+                <ul style="margin: 20px 0; padding-left: 30px;">
+                    <li><strong>Celebrate Small Wins:</strong> Be proud of every workout you complete and every extra rep you get.</li>
+                    <li><strong>Listen to Your Body:</strong> Some days you'll feel great, others you won't. It's okay to take a rest day or deload when needed.</li>
+                    <li><strong>Focus on Form:</strong> Perfecting your technique is more important than lifting a heavy weight with poor form.</li>
+                </ul>
+            </div>
+            
+            <div class="mesocycle">
+                <h2>🤸 Warm-up & Cool-down</h2>
+                <p>Don't skip these! A proper warm-up prepares your body for the workout and prevents injury. A cool-down aids in recovery.</p>
+                <h3>Warm-up (5-10 minutes):</h3>
+                <ul style="margin: 20px 0; padding-left: 30px;">
+                    <li class="list-item"><strong>Light Cardio:</strong> 5 minutes on a treadmill, elliptical, or bike to get your heart rate up.</li>
+                    <li class="list-item"><strong>Dynamic Stretches:</strong> Arm circles, leg swings, torso twists.</li>
+                    <li class="list-item"><strong>Specific Warm-up:</strong> Do 1-2 sets of the first exercise with very light weight to practice the movement.</li>
+                </ul>
+                <h3>Cool-down (5-10 minutes):</h3>
+                <ul style="margin: 20px 0; padding-left: 30px;">
+                    <li class="list-item"><strong>Static Stretches:</strong> Hold stretches for your quads, hamstrings, glutes, and chest for 20-30 seconds each.</li>
+                </ul>
+            </div>
+            
+            <div class="mesocycle">
+                <h2>📚 Glossary</h2>
+                <div class="glossary-item">
+                    <h4>RPE (Rate of Perceived Exertion)</h4>
+                    <p>A scale from 1-10 to rate the intensity of your set. RPE 7 means you feel like you could have done 3 more reps. RPE 9 means you could have done 1 more rep.</p>
+                </div>
+                <div class="glossary-item">
+                    <h4>Progressive Overload</h4>
+                    <p>The principle of gradually increasing the stress on your body during training. This can be done by increasing weight, reps, sets, or decreasing rest time.</p>
+                </div>
+                <div class="glossary-item">
+                    <h4>Mesocycle</h4>
+                    <p>A training period, usually 4-6 weeks, with a specific focus (e.g., strength, endurance). This program is divided into three mesocycles.</p>
+                </div>
+            </div>
+        </div>
         
          <div class="footer">
              <h3>💪 Your Transformation Awaits!</h3>
          </div>
      </div>
      
-     <!-- Modal for enlarged GIFs -->
      <div id="gifModal" class="modal">
          <span class="close">&times;</span>
          <div class="modal-content">
@@ -1203,23 +1429,116 @@
     
      <script>
          function showSection(sectionId) {
-             // Hide all sections
              const sections = document.querySelectorAll('.section');
              sections.forEach(section => {
                  section.classList.remove('active');
              });
-             
-             // Show selected section
              document.getElementById(sectionId).classList.add('active');
          }
          
+         function calculateMacros() {
+             const weight = document.getElementById('weight').value;
+             if (weight > 0) {
+                 const protein = Math.round(weight * 1.9);
+                 const carbs = Math.round(weight * 3);
+                 const fats = Math.round(weight * 1);
+                 const calories = (protein * 4) + (carbs * 4) + (fats * 9);
+                 document.getElementById('protein').innerText = `Protein: ${protein}g`;
+                 document.getElementById('carbs').innerText = `Carbs: ${carbs}g`;
+                 document.getElementById('fats').innerText = `Fats: ${fats}g`;
+                 document.getElementById('calories').innerText = `Est. Calories: ${calories}kcal`;
+             } else {
+                 alert('Please enter a valid body weight.');
+             }
+         }
+
+         // Progress Log Functions
+         const logForm = document.getElementById('logForm');
+         const logTableBody = document.getElementById('logTableBody');
+         const logDateInput = document.getElementById('logDate');
+         const logExerciseInput = document.getElementById('logExercise');
+         const logWeightInput = document.getElementById('logWeight');
+         const logRepsInput = document.getElementById('logReps');
+         const logSubmitBtn = document.getElementById('logSubmitBtn');
+
+         let logEntries = JSON.parse(localStorage.getItem('workoutLog')) || [];
+         let editingIndex = null;
+
+         function renderLogEntries() {
+             logTableBody.innerHTML = '';
+             logEntries.forEach((entry, index) => {
+                 const row = document.createElement('tr');
+                 row.innerHTML = `
+                     <td>${entry.date}</td>
+                     <td>${entry.exercise}</td>
+                     <td>${entry.weight}</td>
+                     <td>${entry.reps}</td>
+                     <td>
+                         <div class="action-buttons">
+                             <button class="edit-btn" onclick="editEntry(${index})">✍️ Edit</button>
+                             <button class="delete-btn" onclick="deleteEntry(${index})">🗑️ Delete</button>
+                         </div>
+                     </td>
+                 `;
+                 logTableBody.appendChild(row);
+             });
+         }
+
+         function deleteEntry(index) {
+             if (confirm('Are you sure you want to delete this log entry?')) {
+                 logEntries.splice(index, 1);
+                 localStorage.setItem('workoutLog', JSON.stringify(logEntries));
+                 renderLogEntries();
+             }
+         }
+
+         function editEntry(index) {
+             const entry = logEntries[index];
+             logDateInput.value = entry.date;
+             logExerciseInput.value = entry.exercise;
+             logWeightInput.value = entry.weight;
+             logRepsInput.value = entry.reps;
+             editingIndex = index;
+             logSubmitBtn.innerText = 'Update Log Entry';
+             logSubmitBtn.style.backgroundColor = '#ffc107';
+             logSubmitBtn.style.color = '#856404';
+         }
+
+         function resetForm() {
+             logForm.reset();
+             editingIndex = null;
+             logSubmitBtn.innerText = 'Add Log Entry';
+             logSubmitBtn.style.backgroundColor = '#28a745';
+             logSubmitBtn.style.color = 'white';
+         }
+
+         logForm.addEventListener('submit', (e) => {
+             e.preventDefault();
+             const newEntry = {
+                 date: logDateInput.value,
+                 exercise: logExerciseInput.value,
+                 weight: logWeightInput.value,
+                 reps: logRepsInput.value
+             };
+             
+             if (editingIndex !== null) {
+                 logEntries[editingIndex] = newEntry;
+             } else {
+                 logEntries.push(newEntry);
+             }
+
+             localStorage.setItem('workoutLog', JSON.stringify(logEntries));
+             renderLogEntries();
+             resetForm();
+         });
+
          // Modal functionality for GIFs
          document.addEventListener('DOMContentLoaded', function() {
+             renderLogEntries();
              const modal = document.getElementById('gifModal');
              const modalImg = document.getElementById('modalGif');
              const closeBtn = document.getElementsByClassName('close')[0];
              
-             // Add click event to all exercise images
              const exerciseImages = document.querySelectorAll('.exercise-image img');
              exerciseImages.forEach(img => {
                  img.addEventListener('click', function() {
@@ -1229,19 +1548,16 @@
                  });
              });
              
-             // Close modal when clicking the X
              closeBtn.addEventListener('click', function() {
                  modal.style.display = 'none';
              });
              
-             // Close modal when clicking outside the image
              modal.addEventListener('click', function(e) {
                  if (e.target === modal) {
                      modal.style.display = 'none';
                  }
              });
              
-             // Close modal with Escape key
              document.addEventListener('keydown', function(e) {
                  if (e.key === 'Escape' && modal.style.display === 'block') {
                      modal.style.display = 'none';
