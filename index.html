@@ -1,1 +1,1236 @@
-Hi
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iryna's 12-Week Body Recomposition Program</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background: white;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        
+        .header {
+            text-align: center;
+            padding: 40px 0;
+            background: linear-gradient(135deg, #ff6b6b, #ffa500);
+            color: white;
+            border-radius: 15px;
+            margin-bottom: 30px;
+        }
+        
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+        
+        .nav {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .nav button {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            margin: 5px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+        
+        .nav button:hover {
+            background: #5a6fd8;
+            transform: translateY(-2px);
+        }
+        
+        .section {
+            display: none;
+            margin-bottom: 40px;
+        }
+        
+        .section.active {
+            display: block;
+        }
+        
+        .mesocycle {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            border-left: 5px solid #667eea;
+        }
+        
+        .mesocycle h2 {
+            color: #667eea;
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+        
+        .workout {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            margin-bottom: 25px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .workout h3 {
+            color: #ff6b6b;
+            font-size: 1.5em;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .exercise {
+            background: #f8f9fa;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            border-left: 4px solid #28a745;
+        }
+        
+        .exercise h4 {
+            color: #28a745;
+            font-size: 1.3em;
+            margin-bottom: 15px;
+        }
+        
+         .exercise-image {
+             width: 100%;
+             max-width: 400px;
+             height: 300px;
+             background: #e9ecef;
+             border-radius: 10px;
+             margin: 15px auto;
+             display: flex;
+             align-items: center;
+             justify-content: center;
+             color: #6c757d;
+             font-style: italic;
+             border: 2px dashed #dee2e6;
+         }
+        
+        .exercise-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin: 15px 0;
+        }
+        
+        .detail-item {
+            background: white;
+            padding: 10px;
+            border-radius: 5px;
+            text-align: center;
+            border: 1px solid #dee2e6;
+        }
+        
+        .detail-item strong {
+            color: #667eea;
+            display: block;
+            margin-bottom: 5px;
+        }
+        
+        .technique-cues {
+            background: #fff3cd;
+            padding: 15px;
+            border-radius: 5px;
+            border-left: 4px solid #ffc107;
+            margin-top: 15px;
+        }
+        
+        .technique-cues h5 {
+            color: #856404;
+            margin-bottom: 10px;
+        }
+        
+        .technique-cues ul {
+            margin-left: 20px;
+        }
+        
+        .technique-cues li {
+            margin-bottom: 5px;
+            color: #856404;
+        }
+        
+        .nutrition-section {
+            background: linear-gradient(135deg, #28a745, #20c997);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+        }
+        
+        .nutrition-section h2 {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .nutrition-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .nutrition-card {
+            background: rgba(255,255,255,0.1);
+            padding: 20px;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .nutrition-card h4 {
+            margin-bottom: 15px;
+            color: #fff;
+        }
+        
+        .progress-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .progress-table th {
+            background: #667eea;
+            color: white;
+            padding: 15px;
+            text-align: left;
+        }
+        
+        .progress-table td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #dee2e6;
+        }
+        
+        .progress-table tr:hover {
+            background: #f8f9fa;
+        }
+        
+         .footer {
+             text-align: center;
+             padding: 30px;
+             background: #343a40;
+             color: white;
+             border-radius: 15px;
+             margin-top: 30px;
+         }
+         
+         /* Modal styles for enlarged GIFs */
+         .modal {
+             display: none;
+             position: fixed;
+             z-index: 1000;
+             left: 0;
+             top: 0;
+             width: 100%;
+             height: 100%;
+             background-color: rgba(0,0,0,0.8);
+             cursor: pointer;
+         }
+         
+         .modal-content {
+             position: absolute;
+             top: 50%;
+             left: 50%;
+             transform: translate(-50%, -50%);
+             max-width: 90%;
+             max-height: 90%;
+             border-radius: 10px;
+         }
+         
+         .modal-content img {
+             width: 100%;
+             height: auto;
+             border-radius: 10px;
+         }
+         
+         .close {
+             position: absolute;
+             top: 15px;
+             right: 35px;
+             color: #f1f1f1;
+             font-size: 40px;
+             font-weight: bold;
+             cursor: pointer;
+         }
+         
+         .close:hover {
+             color: #bbb;
+         }
+         
+         .exercise-image img {
+             cursor: pointer;
+             transition: transform 0.2s ease;
+         }
+         
+         .exercise-image img:hover {
+             transform: scale(1.05);
+         }
+         
+         /* Superset images styling */
+         .superset-images {
+             display: flex;
+             flex-direction: row;
+             gap: 10px;
+         }
+         
+         .superset-images img {
+             flex: 1;
+         }
+        
+         @media (max-width: 768px) {
+             .container {
+                 margin: 5px;
+                 padding: 10px;
+             }
+             
+             .header {
+                 padding: 20px 0;
+             }
+             
+             .header h1 {
+                 font-size: 1.8em;
+             }
+             
+             .header p {
+                 font-size: 1em;
+             }
+             
+             .nav {
+                 padding: 15px 10px;
+             }
+             
+             .nav button {
+                 padding: 8px 16px;
+                 font-size: 14px;
+                 margin: 3px;
+             }
+             
+             .mesocycle {
+                 padding: 20px 15px;
+             }
+             
+             .mesocycle h2 {
+                 font-size: 1.5em;
+             }
+             
+             .workout {
+                 padding: 15px;
+             }
+             
+             .workout h3 {
+                 font-size: 1.3em;
+             }
+             
+             .exercise {
+                 padding: 15px;
+             }
+             
+             .exercise h4 {
+                 font-size: 1.1em;
+             }
+             
+             .exercise-image {
+                 max-width: 100%;
+                 height: 250px;
+                 margin: 10px auto;
+             }
+             
+             .exercise-details {
+                 grid-template-columns: repeat(2, 1fr);
+                 gap: 10px;
+             }
+             
+             .detail-item {
+                 padding: 8px;
+                 font-size: 14px;
+             }
+             
+             .nutrition-grid {
+                 grid-template-columns: 1fr;
+                 gap: 15px;
+             }
+             
+             .nutrition-card {
+                 padding: 15px;
+             }
+             
+             .progress-table {
+                 font-size: 14px;
+             }
+             
+             .progress-table th,
+             .progress-table td {
+                 padding: 8px 10px;
+             }
+             
+             .modal-content {
+                 max-width: 95%;
+                 max-height: 95%;
+             }
+             
+             .close {
+                 top: 10px;
+                 right: 20px;
+                 font-size: 30px;
+             }
+             
+             /* Superset images on mobile */
+             .superset-images {
+                 flex-direction: column;
+                 gap: 5px;
+             }
+             
+             .superset-images img {
+                 height: 200px;
+             }
+         }
+         
+         @media (max-width: 480px) {
+             .header h1 {
+                 font-size: 1.5em;
+             }
+             
+             .nav button {
+                 padding: 6px 12px;
+                 font-size: 12px;
+                 margin: 2px;
+             }
+             
+             .exercise-details {
+                 grid-template-columns: 1fr;
+             }
+             
+             .exercise-image {
+                 height: 200px;
+             }
+             
+             .mesocycle h2 {
+                 font-size: 1.3em;
+             }
+             
+             .workout h3 {
+                 font-size: 1.2em;
+             }
+         }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>💪 Iryna's 12-Week Transformation</h1>
+            <p>Body Recomposition & Strength Program by HuX</p>
+        </div>
+        
+        <div class="nav">
+            <button onclick="showSection('overview')">Program Overview</button>
+            <button onclick="showSection('month1')">Month 1: Foundation</button>
+            <button onclick="showSection('month2')">Month 2: Strength</button>
+            <button onclick="showSection('month3')">Month 3: Definition</button>
+            <button onclick="showSection('nutrition')">Nutrition & Recovery</button>
+        </div>
+        
+        <!-- Program Overview -->
+        <div id="overview" class="section active">
+            <div class="mesocycle">
+                <h2>🎯 Your Transformation Goals</h2>
+                <p><strong>Iryna, welcome to your strength journey!</strong> This program is designed specifically for you to:</p>
+                <ul style="margin: 20px 0; padding-left: 30px;">
+                    <li>Lose 8-10 kg of fat sustainably</li>
+                    <li>Build lean muscle, especially in glutes and legs</li>
+                    <li>Develop real strength and confidence</li>
+                    <li>Master proper lifting technique</li>
+                </ul>
+            </div>
+            
+            <table class="progress-table">
+                <thead>
+                    <tr>
+                        <th>Mesocycle</th>
+                        <th>Weeks</th>
+                        <th>Focus</th>
+                        <th>Rep Ranges</th>
+                        <th>Primary Goal</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Foundation</strong></td>
+                        <td>1-4</td>
+                        <td>Form Mastery & Endurance</td>
+                        <td>10-15 reps</td>
+                        <td>Learn movements, build routine</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Strength</strong></td>
+                        <td>5-8</td>
+                        <td>Progressive Overload & Hypertrophy</td>
+                        <td>8-12 reps</td>
+                        <td>Build muscle & strength</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Definition</strong></td>
+                        <td>9-12</td>
+                        <td>Metabolic Conditioning</td>
+                        <td>6-10 reps + intensity</td>
+                        <td>Maximize fat loss & definition</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <div class="mesocycle">
+                <h2>📅 Training Schedule</h2>
+                <p><strong>Frequency:</strong> 3 sessions per week</p>
+                <p><strong>Split:</strong> Full-body workouts (Workout A & Workout B alternating)</p>
+                <p><strong>Weekly Pattern:</strong> Week 1: A, B, A | Week 2: B, A, B | Week 3: A, B, A | Week 4: B, A, B</p>
+            </div>
+        </div>
+        
+        <!-- Month 1: Foundation -->
+        <div id="month1" class="section">
+            <div class="mesocycle">
+                <h2>🏗️ Month 1: Foundation & Form Mastery</h2>
+                <p><strong>Focus:</strong> Learning proper movement patterns, building mind-muscle connection, establishing routine</p>
+                <p><strong>Rep Ranges:</strong> 10-15 reps for most exercises</p>
+                <p><strong>RPE Target:</strong> 6-7 (moderate intensity - you should feel challenged but maintain perfect form)</p>
+            </div>
+            
+            <div class="workout">
+                <h3>🔥 Workout A</h3>
+                
+                <div class="exercise">
+                    <h4>1. Goblet Squat</h4>
+                     <div class="exercise-image">
+                         <img src="gifs/GOBLET_SQT.gif" alt="Goblet Squat Exercise" style="width: 100%; height: 100%; object-fit: contain; border-radius: 10px;">
+                     </div>
+                    <div class="exercise-details">
+                        <div class="detail-item">
+                            <strong>Sets</strong>3
+                        </div>
+                        <div class="detail-item">
+                            <strong>Reps</strong>12-15
+                        </div>
+                        <div class="detail-item">
+                            <strong>Rest</strong>60 seconds
+                        </div>
+                        <div class="detail-item">
+                            <strong>RPE</strong>6-7
+                        </div>
+                    </div>
+                    <div class="technique-cues">
+                        <h5>🎯 Technique Cues:</h5>
+                        <ul>
+                            <li>Keep your chest up and core braced throughout</li>
+                            <li>Drive through your heels and push your knees out</li>
+                            <li>Descend until your thighs are parallel to the floor</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="exercise">
+                    <h4>2. Dumbbell Romanian Deadlift</h4>
+                    <div class="exercise-image">
+                         <img src="gifs/DB_RM_DL.gif" alt="Dumbbell Romanian Deadlift Exercise" style="width: 100%; height: 100%; object-fit: contain; border-radius: 10px;">
+                    </div>
+                    <div class="exercise-details">
+                        <div class="detail-item">
+                            <strong>Sets</strong>3
+                        </div>
+                        <div class="detail-item">
+                            <strong>Reps</strong>12-15
+                        </div>
+                        <div class="detail-item">
+                            <strong>Rest</strong>60 seconds
+                        </div>
+                        <div class="detail-item">
+                            <strong>RPE</strong>6-7
+                        </div>
+                    </div>
+                    <div class="technique-cues">
+                        <h5>🎯 Technique Cues:</h5>
+                        <ul>
+                            <li>Keep the dumbbells close to your body throughout</li>
+                            <li>Push your hips back as if closing a car door</li>
+                            <li>Feel the stretch in your hamstrings, not your lower back</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="exercise">
+                    <h4>3. Dumbbell Bench Press</h4>
+                    <div class="exercise-image">
+                        <img src="gifs/DB_BP.gif" alt="Dumbbell Bench Press Exercise" style="width: 100%; height: 100%; object-fit: contain; border-radius: 10px;">
+                    </div>
+                    <div class="exercise-details">
+                        <div class="detail-item">
+                            <strong>Sets</strong>3
+                        </div>
+                        <div class="detail-item">
+                            <strong>Reps</strong>10-12
+                        </div>
+                        <div class="detail-item">
+                            <strong>Rest</strong>60 seconds
+                        </div>
+                        <div class="detail-item">
+                            <strong>RPE</strong>6-7
+                        </div>
+                    </div>
+                    <div class="technique-cues">
+                        <h5>🎯 Technique Cues:</h5>
+                        <ul>
+                            <li>Keep your shoulder blades retracted and core tight</li>
+                            <li>Lower with control until your elbows are at 90 degrees</li>
+                            <li>Press up and slightly together at the top</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="exercise">
+                    <h4>4. Hip Thrusts (Bodyweight)</h4>
+                    <div class="exercise-image">
+                        <img src="gifs/HIP_THRUST.gif" alt="Hip Thrusts Exercise" style="width: 100%; height: 100%; object-fit: contain; border-radius: 10px;">
+                    </div>
+                    <div class="exercise-details">
+                        <div class="detail-item">
+                            <strong>Sets</strong>3
+                        </div>
+                        <div class="detail-item">
+                            <strong>Reps</strong>15-20
+                        </div>
+                        <div class="detail-item">
+                            <strong>Rest</strong>45 seconds
+                        </div>
+                        <div class="detail-item">
+                            <strong>RPE</strong>7-8
+                        </div>
+                    </div>
+                    <div class="technique-cues">
+                        <h5>🎯 Technique Cues:</h5>
+                        <ul>
+                            <li>Squeeze your glutes at the top and hold for 2 seconds</li>
+                            <li>Keep your chin tucked and gaze forward</li>
+                            <li>Drive through your heels, not your toes</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="exercise">
+                    <h4>5. Dumbbell Rows</h4>
+                    <div class="exercise-image">
+                        <img src="gifs/OA_DB_ROW.gif" alt="Dumbbell Rows Exercise" style="width: 100%; height: 100%; object-fit: contain; border-radius: 10px;">
+                    </div>
+                    <div class="exercise-details">
+                        <div class="detail-item">
+                            <strong>Sets</strong>3
+                        </div>
+                        <div class="detail-item">
+                            <strong>Reps</strong>12-15 each arm
+                        </div>
+                        <div class="detail-item">
+                            <strong>Rest</strong>45 seconds
+                        </div>
+                        <div class="detail-item">
+                            <strong>RPE</strong>6-7
+                        </div>
+                    </div>
+                    <div class="technique-cues">
+                        <h5>🎯 Technique Cues:</h5>
+                        <ul>
+                            <li>Keep your core tight and back straight</li>
+                            <li>Pull the dumbbell to your hip, not your chest</li>
+                            <li>Squeeze your shoulder blade at the top</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="workout">
+                <h3>🔥 Workout B</h3>
+                
+                <div class="exercise">
+                    <h4>1. Dumbbell Bulgarian Split Squats</h4>
+                    <div class="exercise-image">
+                        <img src="gifs/DB_BULSPLIT_SQT.gif" alt="Dumbbell Bulgarian Split Squats Exercise" style="width: 100%; height: 100%; object-fit: contain; border-radius: 10px;">
+                    </div>
+                    <div class="exercise-details">
+                        <div class="detail-item">
+                            <strong>Sets</strong>3
+                        </div>
+                        <div class="detail-item">
+                            <strong>Reps</strong>10-12 each leg
+                        </div>
+                        <div class="detail-item">
+                            <strong>Rest</strong>60 seconds
+                        </div>
+                        <div class="detail-item">
+                            <strong>RPE</strong>6-7
+                        </div>
+                    </div>
+                    <div class="technique-cues">
+                        <h5>🎯 Technique Cues:</h5>
+                        <ul>
+                            <li>Keep your front shin vertical and chest up</li>
+                            <li>Lower until your front thigh is parallel to the floor</li>
+                            <li>Drive through your front heel to stand up</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="exercise">
+                    <h4>2. Dumbbell Deadlift</h4>
+                    <div class="exercise-image">
+                        <img src="gifs/anim-dumbbell-deadlifts.gif" alt="Dumbbell Deadlift Exercise" style="width: 100%; height: 100%; object-fit: contain; border-radius: 10px;">
+                    </div>
+                    <div class="exercise-details">
+                        <div class="detail-item">
+                            <strong>Sets</strong>3
+                        </div>
+                        <div class="detail-item">
+                            <strong>Reps</strong>12-15
+                        </div>
+                        <div class="detail-item">
+                            <strong>Rest</strong>60 seconds
+                        </div>
+                        <div class="detail-item">
+                            <strong>RPE</strong>6-7
+                        </div>
+                    </div>
+                    <div class="technique-cues">
+                        <h5>🎯 Technique Cues:</h5>
+                        <ul>
+                            <li>Keep the dumbbells close to your body</li>
+                            <li>Push your hips back and keep your chest up</li>
+                            <li>Stand up by driving your hips forward</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="exercise">
+                    <h4>3. Dumbbell Overhead Press</h4>
+                    <div class="exercise-image">
+                        <img src="gifs/SEAT_DB_SHD_PRESS.gif" alt="Dumbbell Overhead Exercise" style="width: 100%; height: 100%; object-fit: contain; border-radius: 10px;">
+                    </div>
+                    <div class="exercise-details">
+                        <div class="detail-item">
+                            <strong>Sets</strong>3
+                        </div>
+                        <div class="detail-item">
+                            <strong>Reps</strong>10-12
+                        </div>
+                        <div class="detail-item">
+                            <strong>Rest</strong>60 seconds
+                        </div>
+                        <div class="detail-item">
+                            <strong>RPE</strong>6-7
+                        </div>
+                    </div>
+                    <div class="technique-cues">
+                        <h5>🎯 Technique Cues:</h5>
+                        <ul>
+                            <li>Keep your core tight and avoid arching your back</li>
+                            <li>Press straight up, not forward</li>
+                            <li>Lower with control to shoulder level</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="exercise">
+                    <h4>4. Glute Bridges (with hold)</h4>
+                    <div class="exercise-image">
+                        <img src="gifs/GLUTE_BRDG.gif" alt="Glute Bridges Exercise" style="width: 100%; height: 100%; object-fit: contain; border-radius: 10px;">
+                    </div>
+                    <div class="exercise-details">
+                        <div class="detail-item">
+                            <strong>Sets</strong>3
+                        </div>
+                        <div class="detail-item">
+                            <strong>Reps</strong>15-20
+                        </div>
+                        <div class="detail-item">
+                            <strong>Rest</strong>45 seconds
+                        </div>
+                        <div class="detail-item">
+                            <strong>RPE</strong>7-8
+                        </div>
+                    </div>
+                    <div class="technique-cues">
+                        <h5>🎯 Technique Cues:</h5>
+                        <ul>
+                            <li>Hold the top position for 3 seconds</li>
+                            <li>Squeeze your glutes as hard as possible</li>
+                            <li>Keep your ribs down and core engaged</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="exercise">
+                    <h4>5. Lat Pulldown</h4>
+                    <div class="exercise-image">
+                        <img src="gifs/LAT_PULL_DOWN.gif" alt="Lat Pulldown Exercise" style="width: 100%; height: 100%; object-fit: contain; border-radius: 10px;">
+                    </div>
+                    <div class="exercise-details">
+                        <div class="detail-item">
+                            <strong>Sets</strong>3
+                        </div>
+                        <div class="detail-item">
+                            <strong>Reps</strong>12-15
+                        </div>
+                        <div class="detail-item">
+                            <strong>Rest</strong>45 seconds
+                        </div>
+                        <div class="detail-item">
+                            <strong>RPE</strong>6-7
+                        </div>
+                    </div>
+                    <div class="technique-cues">
+                        <h5>🎯 Technique Cues:</h5>
+                        <ul>
+                            <li>Pull the bar to your upper chest, not behind your head</li>
+                            <li>Squeeze your shoulder blades together</li>
+                            <li>Control the weight on the way up</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Month 2: Strength -->
+        <div id="month2" class="section">
+            <div class="mesocycle">
+                <h2>💪 Month 2: Strength Progression & Hypertrophy</h2>
+                <p><strong>Focus:</strong> Progressive overload, building real strength, muscle growth</p>
+                <p><strong>Rep Ranges:</strong> 8-12 reps for primary lifts, 10-15 for accessories</p>
+                <p><strong>RPE Target:</strong> 7-8 (challenging but maintainable)</p>
+                <p><strong>Key Changes:</strong> Increased weight, barbell introduction, longer rest periods (90 seconds for primary lifts)</p>
+            </div>
+            
+            <div class="workout">
+                <h3>🔥 Workout A (Updated)</h3>
+                
+                <div class="exercise">
+                    <h4>1. Barbell Back Squat</h4>
+                    <div class="exercise-image">
+                        <img src="gifs/BB_BSQT.gif" alt="Barbell Back Squat Exercise" style="width: 100%; height: 100%; object-fit: contain; border-radius: 10px;">
+                    </div>
+                    <div class="exercise-details">
+                        <div class="detail-item">
+                            <strong>Sets</strong>4
+                        </div>
+                        <div class="detail-item">
+                            <strong>Reps</strong>8-10
+                        </div>
+                        <div class="detail-item">
+                            <strong>Rest</strong>90 seconds
+                        </div>
+                        <div class="detail-item">
+                            <strong>RPE</strong>7-8
+                        </div>
+                    </div>
+                    <div class="technique-cues">
+                        <h5>🎯 Technique Cues:</h5>
+                        <ul>
+                            <li>Keep your chest up and core braced</li>
+                            <li>Drive through your heels and push knees out</li>
+                            <li>Descend until thighs are parallel to floor</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="exercise">
+                    <h4>2. Barbell Romanian Deadlift</h4>
+                    <div class="exercise-image">
+                        <img src="gifs/RM_BB_DL.gif" alt="Barbell Romanian Deadlift Exercise" style="width: 100%; height: 100%; object-fit: contain; border-radius: 10px;">
+                    </div>
+                    <div class="exercise-details">
+                        <div class="detail-item">
+                            <strong>Sets</strong>4
+                        </div>
+                        <div class="detail-item">
+                            <strong>Reps</strong>8-10
+                        </div>
+                        <div class="detail-item">
+                            <strong>Rest</strong>90 seconds
+                        </div>
+                        <div class="detail-item">
+                            <strong>RPE</strong>7-8
+                        </div>
+                    </div>
+                    <div class="technique-cues">
+                        <h5>🎯 Technique Cues:</h5>
+                        <ul>
+                            <li>Keep the bar close to your body</li>
+                            <li>Push hips back, feel hamstring stretch</li>
+                            <li>Stand up by driving hips forward</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="exercise">
+                    <h4>3. Barbell Bench Press</h4>
+                    <div class="exercise-image">
+                        <img src="gifs/BB_BP.gif" alt="Barbell Bench Press Exercise" style="width: 100%; height: 100%; object-fit: contain; border-radius: 10px;">
+                    </div>
+                    <div class="exercise-details">
+                        <div class="detail-item">
+                            <strong>Sets</strong>4
+                        </div>
+                        <div class="detail-item">
+                            <strong>Reps</strong>8-10
+                        </div>
+                        <div class="detail-item">
+                            <strong>Rest</strong>90 seconds
+                        </div>
+                        <div class="detail-item">
+                            <strong>RPE</strong>7-8
+                        </div>
+                    </div>
+                    <div class="technique-cues">
+                        <h5>🎯 Technique Cues:</h5>
+                        <ul>
+                            <li>Keep shoulder blades retracted</li>
+                            <li>Lower to chest with control</li>
+                            <li>Press up and slightly together</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="exercise">
+                    <h4>4. Barbell Hip Thrusts</h4>
+                    <div class="exercise-image">
+                        <img src="gifs/WEI_HIP_THRUST.gif" alt="Barbell Hip Thrusts Exercise" style="width: 100%; height: 100%; object-fit: contain; border-radius: 10px;">
+                    </div>
+                    <div class="exercise-details">
+                        <div class="detail-item">
+                            <strong>Sets</strong>4
+                        </div>
+                        <div class="detail-item">
+                            <strong>Reps</strong>10-12
+                        </div>
+                        <div class="detail-item">
+                            <strong>Rest</strong>60 seconds
+                        </div>
+                        <div class="detail-item">
+                            <strong>RPE</strong>8-9
+                        </div>
+                    </div>
+                    <div class="technique-cues">
+                        <h5>🎯 Technique Cues:</h5>
+                        <ul>
+                            <li>Squeeze glutes at top and hold 2 seconds</li>
+                            <li>Keep chin tucked and gaze forward</li>
+                            <li>Drive through heels, not toes</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Month 3: Definition -->
+        <div id="month3" class="section">
+            <div class="mesocycle">
+                <h2>🔥 Month 3: Metabolic Conditioning & Definition</h2>
+                <p><strong>Focus:</strong> Maximizing calorie expenditure, muscular definition, intensity techniques</p>
+                <p><strong>Rep Ranges:</strong> 6-10 reps for primary lifts, 8-12 for accessories</p>
+                <p><strong>RPE Target:</strong> 8-9 (very challenging, pushing limits)</p>
+                <p><strong>Key Changes:</strong> Supersets, shorter rest periods, intensity techniques, HIIT cardio</p>
+            </div>
+            
+            <div class="workout">
+                <h3>🔥 Workout A (Final Phase)</h3>
+                
+                <div class="exercise">
+                    <h4>1. Barbell Back Squat</h4>
+                    <div class="exercise-image">
+                        <img src="gifs/BB_BSQT.gif" alt="Barbell Back Squat Exercise" style="width: 100%; height: 100%; object-fit: contain; border-radius: 10px;">
+                    </div>
+                    <div class="exercise-details">
+                        <div class="detail-item">
+                            <strong>Sets</strong>4
+                        </div>
+                        <div class="detail-item">
+                            <strong>Reps</strong>6-8
+                        </div>
+                        <div class="detail-item">
+                            <strong>Rest</strong>60 seconds
+                        </div>
+                        <div class="detail-item">
+                            <strong>RPE</strong>8-9
+                        </div>
+                    </div>
+                    <div class="technique-cues">
+                        <h5>🎯 Technique Cues:</h5>
+                        <ul>
+                            <li>Maintain perfect form despite higher intensity</li>
+                            <li>Drive through heels explosively</li>
+                            <li>Control the descent</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="exercise">
+                    <h4>Superset 1: Barbell Hip Thrusts + Cable Kickbacks</h4>
+                     <div class="exercise-image superset-images">
+                         <img src="gifs/WEI_HIP_THRUST.gif" alt="Barbell Hip Thrusts Exercise" style="width: 100%; height: 100%; object-fit: contain; border-radius: 10px;">
+                         <img src="gifs/CABLE_DONK_KICK.gif" alt="Cable Kickbacks Exercise" style="width: 100%; height: 100%; object-fit: contain; border-radius: 10px;">
+                     </div>
+                    <div class="exercise-details">
+                        <div class="detail-item">
+                            <strong>Sets</strong>4
+                        </div>
+                        <div class="detail-item">
+                            <strong>Reps</strong>8-10 + 12-15 each leg
+                        </div>
+                        <div class="detail-item">
+                            <strong>Rest</strong>60 seconds
+                        </div>
+                        <div class="detail-item">
+                            <strong>RPE</strong>8-9 / 7-8
+                        </div>
+                    </div>
+                    <div class="technique-cues">
+                        <h5>🎯 Technique Cues:</h5>
+                        <ul>
+                            <li>Perform hip thrusts, then immediately move to cable kickbacks</li>
+                            <li>Focus on glute activation in both exercises</li>
+                            <li>Minimal rest between exercises, full rest after superset</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="exercise">
+                    <h4>Superset 2: Cable Rows + Dumbbell Lateral Raises</h4>
+                     <div class="exercise-image superset-images">
+                         <img src="gifs/SEATED_CABLE_ROW.gif" alt="Cable Rows Exercise" style="width: 100%; height: 100%; object-fit: contain; border-radius: 10px;">
+                         <img src="gifs/DB_LAT_RAISE.gif" alt="Dumbbell Lateral Raises Exercise" style="width: 100%; height: 100%; object-fit: contain; border-radius: 10px;">
+                     </div>
+                    <div class="exercise-details">
+                        <div class="detail-item">
+                            <strong>Sets</strong>3
+                        </div>
+                        <div class="detail-item">
+                            <strong>Reps</strong>8-10 + 10-12
+                        </div>
+                        <div class="detail-item">
+                            <strong>Rest</strong>60 seconds
+                        </div>
+                        <div class="detail-item">
+                            <strong>RPE</strong>7-8 / 7-8
+                        </div>
+                    </div>
+                    <div class="technique-cues">
+                        <h5>🎯 Technique Cues:</h5>
+                        <ul>
+                            <li>Pull to lower chest in rows, raise to shoulder height in laterals</li>
+                            <li>Control both movements, don't let momentum take over</li>
+                            <li>Focus on muscle contraction, not just moving weight</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Nutrition & Recovery -->
+        <div id="nutrition" class="section">
+            <div class="nutrition-section">
+                <h2>🥗 Nourish to Thrive: Nutrition & Recovery Essentials</h2>
+                <p>The foundation of your success - you can't out-train a poor diet or inadequate recovery!</p>
+                
+                <div class="nutrition-grid">
+                    <div class="nutrition-card">
+                        <h4>🍖 Protein Priority</h4>
+                        <p><strong>Target:</strong> 1.6-2.2g per kg body weight</p>
+                        <p><strong>For you:</strong> 130-180g daily</p>
+                        <p><strong>Sources:</strong> Lean meats, fish, eggs, Greek yogurt, protein powder</p>
+                    </div>
+                    
+                    <div class="nutrition-card">
+                        <h4>⚡ Smart Carbs</h4>
+                        <p><strong>Target:</strong> 2-4g per kg body weight</p>
+                        <p><strong>For you:</strong> 165-330g daily</p>
+                        <p><strong>Sources:</strong> Oats, quinoa, sweet potatoes, brown rice</p>
+                    </div>
+                    
+                    <div class="nutrition-card">
+                        <h4>🥑 Healthy Fats</h4>
+                        <p><strong>Target:</strong> 0.8-1.2g per kg body weight</p>
+                        <p><strong>For you:</strong> 65-100g daily</p>
+                        <p><strong>Sources:</strong> Avocado, nuts, seeds, olive oil, fatty fish</p>
+                    </div>
+                    
+                    <div class="nutrition-card">
+                        <h4>💧 Hydration</h4>
+                        <p><strong>Target:</strong> 3-4 liters daily</p>
+                        <p><strong>Monitor:</strong> Pale yellow urine = well hydrated</p>
+                        <p><strong>Add:</strong> Electrolytes during intense training</p>
+                    </div>
+                    
+                    <div class="nutrition-card">
+                        <h4>😴 Sleep Optimization</h4>
+                        <p><strong>Target:</strong> 7-9 hours quality sleep</p>
+                        <p><strong>Benefits:</strong> Muscle repair, hormone balance, hunger control</p>
+                        <p><strong>Tips:</strong> No screens 1 hour before bed, cool room</p>
+                    </div>
+                    
+                    <div class="nutrition-card">
+                        <h4>📊 Calorie Deficit</h4>
+                        <p><strong>Target:</strong> 300-500 calorie deficit daily</p>
+                        <p><strong>Result:</strong> 0.5-1 lb fat loss per week</p>
+                        <p><strong>Minimum:</strong> Don't go below 1,200 calories</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mesocycle">
+                <h2>📈 Progressive Overload Rules</h2>
+                <p><strong>The Golden Rule:</strong> When you can comfortably complete all sets and reps for an exercise at the target RPE, increase the weight by the smallest available increment in the next session.</p>
+                
+                <h3>Progression Guidelines:</h3>
+                <ul style="margin: 20px 0; padding-left: 30px;">
+                    <li><strong>Month 1:</strong> Focus on form mastery, small increments (1-2,5 kg upper body, 2,5-5 kg lower body)</li>
+                    <li><strong>Month 2:</strong> Prioritize progressive overload, larger increments (2,5-5 kg upper body, 5-7 kg lower body)</li>
+                    <li><strong>Month 3:</strong> Push intensity while maintaining form, focus on intensity techniques</li>
+                </ul>
+            </div>
+            
+            <div class="mesocycle">
+                <h2>🏃‍♀️ Cardio Progression Plan</h2>
+                 <h3>LISS => Low-Intensity: The exercise feels easy and comfortable, and you can sustain it for a long time.</h3>
+                 <h3>HIIT => High-Intensity: The exercise feels challenging and uncomfortable, and you can't sustain it for a long time.</h3>      
+                 <h3> HR => Heart Rate: You can estimate your maximum heart rate by subtracting your age from 220 .</h3>      
+                <table class="progress-table">
+                    <thead>
+                        <tr>
+                            <th>Month</th>
+                            <th>Frequency</th>
+                            <th>Duration</th>
+                            <th>Intensity</th>
+                            <th>Goal</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Month 1</strong></td>
+                            <td>3 sessions/week</td>
+                            <td>20-25 minutes</td>
+                            <td>LISS (60-70% max HR)</td>
+                            <td>Build aerobic base</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Month 2</strong></td>
+                            <td>3 sessions/week</td>
+                            <td>25-30 minutes</td>
+                            <td>Mixed (65-75% max HR)</td>
+                            <td>Increase calorie burn</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Month 3</strong></td>
+                            <td>3 sessions/week</td>
+                            <td>15-20 min HIIT + 10 min LISS</td>
+                            <td>HIIT (80-90% intervals)</td>
+                            <td>Maximize fat burning</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+         <div class="footer">
+             <h3>💪 Your Transformation Awaits!</h3>
+         </div>
+     </div>
+     
+     <!-- Modal for enlarged GIFs -->
+     <div id="gifModal" class="modal">
+         <span class="close">&times;</span>
+         <div class="modal-content">
+             <img id="modalGif" src="" alt="">
+         </div>
+     </div>
+    
+     <script>
+         function showSection(sectionId) {
+             // Hide all sections
+             const sections = document.querySelectorAll('.section');
+             sections.forEach(section => {
+                 section.classList.remove('active');
+             });
+             
+             // Show selected section
+             document.getElementById(sectionId).classList.add('active');
+         }
+         
+         // Modal functionality for GIFs
+         document.addEventListener('DOMContentLoaded', function() {
+             const modal = document.getElementById('gifModal');
+             const modalImg = document.getElementById('modalGif');
+             const closeBtn = document.getElementsByClassName('close')[0];
+             
+             // Add click event to all exercise images
+             const exerciseImages = document.querySelectorAll('.exercise-image img');
+             exerciseImages.forEach(img => {
+                 img.addEventListener('click', function() {
+                     modal.style.display = 'block';
+                     modalImg.src = this.src;
+                     modalImg.alt = this.alt;
+                 });
+             });
+             
+             // Close modal when clicking the X
+             closeBtn.addEventListener('click', function() {
+                 modal.style.display = 'none';
+             });
+             
+             // Close modal when clicking outside the image
+             modal.addEventListener('click', function(e) {
+                 if (e.target === modal) {
+                     modal.style.display = 'none';
+                 }
+             });
+             
+             // Close modal with Escape key
+             document.addEventListener('keydown', function(e) {
+                 if (e.key === 'Escape' && modal.style.display === 'block') {
+                     modal.style.display = 'none';
+                 }
+             });
+         });
+     </script>
+</body>
+</html>
